@@ -4,7 +4,7 @@ BindsTo=lain-wg@%i.service
 After=lain-wg@%i.service
 
 [Service]
-ExecStart=/usr/lib/konar/donwload.bash /var/konar/queue
+ExecStart=/usr/lib/konar/download.bash /var/konar/queue
 WorkingDirectory=/var/lib/runescape.com
 User=konar
 Group=konar
