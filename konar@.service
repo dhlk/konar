@@ -1,0 +1,48 @@
+[Unit]
+Description=download runescape hiscores data
+BindsTo=lain-wg@%i.service
+After=lain-wg@%i.service
+
+[Service]
+ExecStart=/usr/lib/konar/donwload.bash /var/konar/queue
+WorkingDirectory=/var/lib/runescape.com
+User=konar
+Group=konar
+ReadWritePaths=/var/lib/runescape.com
+NoExecPaths=/var/lib/runescape.com
+
+PrivateNetwork=yes
+NetworkNamespacePath=/run/netns/%i
+RestrictAddressFamilies=AF_INET AF_INET6
+
+ProtectProc=invisible
+NoNewPrivileges=yes
+UMask=0026
+OOMScoreAdjust=1000
+Nice=19
+IOSchedulingPriority=7
+ProtectSystem=strict
+ProtectHome=yes
+ReadOnlyPaths=/
+InaccessiblePaths=/dev/shm
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateIPC=yes
+PrivateUsers=yes
+ProtectHostname=yes
+ProtectClock=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+RemoveIPC=yes
+PrivateMounts=yes
+SystemCallFilter=@system-service
+SystemCallFilter=~memfd_create @mount
+SystemCallErrorNumber=EPERM
+SystemCallArchitectures=native

@@ -1,0 +1,9 @@
+[Unit]
+Description=scheduled runescape hiscore download
+
+[Install]
+WantedBy=timers.target
+
+[Timer]
+OnUnitInactiveSec=1h
+RandomizedDelaySec=5m
