@@ -5,5 +5,5 @@ Description=scheduled runescape hiscore download
 WantedBy=timers.target
 
 [Timer]
-OnUnitInactiveSec=1h
+OnCalendar=hourly
 RandomizedDelaySec=5m
