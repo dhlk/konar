@@ -7,8 +7,8 @@ if [ ! -s "$1" ]; then
 	exit 1
 fi
 
-jq -r 'keys[]' "$1" | while read -r key; do
-	jq -r '.[$key][]' "$1" --arg key "$key" | while read -r character; do
+jq -r 'keys[]' "$1" | while IFS= read -r key; do
+	jq -r '.[$key][]' "$1" --arg key "$key" | while IFS= read -r character; do
 		mkdir -p "$key/$character"
 		curl -s "$(printf "$uriformat" "$key" \
 			"$(jq -rn '$x|@uri' --arg x "$character")")" \
