@@ -5,7 +5,7 @@ After=lain-wg@%i.service
 
 [Service]
 SyslogIdentifier=konar@%i
-ExecStart=/usr/lib/konar/download.bash /var/konar/queue
+ExecStart=/usr/lib/konar/download.bash /etc/konar/queue
 WorkingDirectory=/var/lib/runescape.com
 User=konar
 Group=konar
